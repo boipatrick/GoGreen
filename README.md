@@ -1,0 +1,1 @@
+An eco-focused event engagement app that allows users to sign up, explore upcoming events, book a spot, and manage their activities. Features include login/signup flow, event booking, profile dashboard, and a clean bottom navigation.
