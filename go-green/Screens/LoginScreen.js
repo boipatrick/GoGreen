@@ -11,8 +11,8 @@ export default function LoginScreen({ navigation }) {
     if (username.trim() === '' || password.trim() === '') {
       Alert.alert('Login Failed', 'Please enter both username and password');
     } else {
-      
-      navigation.replace('EventList'); 
+      // If valid, navigate to EventList
+      navigation.replace('EventList'); // Make sure 'EventList' is registered in App.js
     }
   };
 

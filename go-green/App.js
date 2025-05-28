@@ -3,9 +3,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './Screens/HomeScreen'; // 
 import LoginScreen from './Screens/LoginScreen';
 import EventList from './Screens/EventList';
-
-
-
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native';
 

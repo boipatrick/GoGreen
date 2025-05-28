@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 
-// Dummy event data
+
+
 const events = [
   {
     id: '1',
