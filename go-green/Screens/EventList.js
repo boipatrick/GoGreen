@@ -1,28 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
+import {events} from '../data/events';
 
 
 
-const events = [
-  {
-    id: '1',
-    title: 'Beach Cleanup Drive',
-    location: 'Diani Beach',
-    date: 'June 10, 2025',
-  },
-  {
-    id: '2',
-    title: 'Tree Planting Day',
-    location: 'Karura Forest',
-    date: 'June 15, 2025',
-  },
-  {
-    id: '3',
-    title: 'River Awareness Walk',
-    location: 'Nairobi River',
-    date: 'June 20, 2025',
-  },
-];
+
+
 
 export default function EventList({ navigation }) {
   const renderItem = ({ item }) => (
@@ -32,7 +15,7 @@ export default function EventList({ navigation }) {
       <Text style={styles.cardSub}>📅 {item.date}</Text>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('EventDetails', { event: item })}
+        onPress={() => navigation.navigate('EventsScreen', { event: item })}
       >
         <Text style={styles.buttonText}>View Details</Text>
       </TouchableOpacity>

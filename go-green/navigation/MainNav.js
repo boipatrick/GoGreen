@@ -1,8 +1,10 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Text } from "react-native";
-import EventList from "../screens/EventList.";
-import ProfilePage from "../Screens/ProfilePage";
-import MyEventsScreen from "../Screens/MyEventsScreen"; //First screen user will interact with after selecting event
+import EventList from "../Screens/EventList";
+import MyEvents from '../Screens/MyEvents'
+
+
+
 
 const BottomTab = createBottomTabNavigator();
 
@@ -47,18 +49,16 @@ export default function MainNav() {
         component={EventList}
         options={{ title: "Home" }}
       />
-
       <BottomTab.Screen
         name="MyEvents"
-        component={MyEventsScreen}
-        options={{ title: "My Events" }}
+        component={MyEvents}
+        options={{ title: "My Events"}}
       />
+      
 
-      <BottomTab.Screen
-        name="Profile"
-        component={ProfilePage}
-        options={{ title: "Profile" }}
-      />
+      
+
+      
     </BottomTab.Navigator>
   );
 }

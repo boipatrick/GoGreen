@@ -2,7 +2,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './Screens/HomeScreen'; // 
 import LoginScreen from './Screens/LoginScreen';
-import EventList from './Screens/EventList';
+import MainNav from './navigation/MainNav';
+import EventsScreen from './Screens/EventsScreen'
+import MyEvents from './Screens/MyEvents';
+
+
+
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native';
 
@@ -24,10 +29,22 @@ export default function App() {
             options={{ headerShown: false }}
           />
           <Stack.Screen
-            name="EventList"
-            component={EventList}
+            name="MainNav"
+            component={MainNav}
             options={{ headerShown: false }}
           />
+          <Stack.Screen
+            name="EventsScreen"
+            component={EventsScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="MyEvents"
+            component={MyEvents}
+            options={{ headerShown: false }}
+          />
+          
+          
          
           {/* Future screens like Auth will go here */}
         </Stack.Navigator>
