@@ -11,7 +11,7 @@ export default function LoginScreen({ navigation }) {
     if (username.trim() === '' || password.trim() === '') {
       Alert.alert('Login Failed', 'Please enter both username and password');
     } else {
-      // Check if user exists
+      
       const user = users.find(
         u => u.email === username && u.password === password
       );

@@ -53,6 +53,11 @@ export default function MainNav() {
         component={MyEvents}
         options={{ title: "My Events"}}
       />
+      <BottomTab.Screen
+        name="Profile"
+        component={ProfilePage}
+        options={{ title: "Profile"}}
+      />
        
       
       

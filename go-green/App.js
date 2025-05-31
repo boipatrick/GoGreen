@@ -1,12 +1,13 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from './Screens/HomeScreen'; // 
+import HomeScreen from './Screens/HomeScreen'; 
 import LoginScreen from './Screens/LoginScreen';
 import MainNav from './navigation/MainNav';
 import EventsScreen from './Screens/EventsScreen'
 import MyEvents from './Screens/MyEvents';
-import SignScreen from './Screens/SignScreen'; // Assuming you have a SignScreen component
-import { UserProvider } from './UserContext'; // Add this import
+import ProfilePage from './Screens/ProfilePage';
+import SignScreen from './Screens/SignScreen'; 
+import { UserProvider } from './UserContext'; 
 
 
 
@@ -51,6 +52,11 @@ export default function App() {
             <Stack.Screen
               name="MyEvents"
               component={MyEvents}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Profile"
+              component={ProfilePage}
               options={{ headerShown: false }}
             />
             

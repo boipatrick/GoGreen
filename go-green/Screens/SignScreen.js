@@ -13,7 +13,7 @@ export default function SignScreen({ navigation }) {
       Alert.alert('Error', 'Please fill all fields');
       return;
     }
-    // Check if user already exists
+    
     if (users.some(u => u.email === email)) {
       Alert.alert('Error', 'User already exists');
       return;
