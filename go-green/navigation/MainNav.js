@@ -2,8 +2,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Text } from "react-native";
 import EventList from "../Screens/EventList";
 import MyEvents from '../Screens/MyEvents'
-
-
+import ProfilePage from "../Screens/ProfilePage";
 
 
 const BottomTab = createBottomTabNavigator();
@@ -54,10 +53,8 @@ export default function MainNav() {
         component={MyEvents}
         options={{ title: "My Events"}}
       />
+       
       
-
-      
-
       
     </BottomTab.Navigator>
   );
