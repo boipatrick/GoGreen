@@ -1,18 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
+import { UserContext } from '../UserContext';
 
-  export default function LoginScreen({ navigation }) {
+export default function LoginScreen({ navigation }) {
+  const { users, setCurrentUser } = useContext(UserContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-
-
     if (username.trim() === '' || password.trim() === '') {
       Alert.alert('Login Failed', 'Please enter both username and password');
     } else {
-      // If valid, navigate to MainNav
-      navigation.replace('MainNav'); 
+      // Check if user exists
+      const user = users.find(
+        u => u.email === username && u.password === password
+      );
+      if (user) {
+        setCurrentUser(user);
+        navigation.replace('MainNav');
+      } else {
+        Alert.alert('Login Failed', 'Invalid credentials');
+      }
     }
   };
 
@@ -22,7 +30,7 @@ import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
 
       <TextInput
         style={styles.input}
-        placeholder="Username"
+        placeholder="Email"
         value={username}
         onChangeText={setUsername}
         autoCapitalize="none"
@@ -37,6 +45,16 @@ import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
       />
 
       <Button title="Login" onPress={handleLogin} />
+
+      <View style={{ flexDirection: 'row', marginTop: 20 }}>
+        <Text>Don't have an Account? </Text>
+        <Text
+          style={{ color: '#2E7D32', fontWeight: 'bold' }}
+          onPress={() => navigation.navigate('SignScreen')}
+        >
+          Sign Up
+        </Text>
+      </View>
     </View>
   );
 }

@@ -8,7 +8,7 @@ const HomeScreen = ({ navigation }) => {
       <Text style={styles.title}>GreenConnect</Text>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('Login')}>
+        onPress={() => navigation.navigate('SignScreen')}>
         <Text style={styles.buttonText}>Welcome</Text>
       </TouchableOpacity>
     </View>
