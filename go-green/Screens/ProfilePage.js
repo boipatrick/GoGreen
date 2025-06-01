@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, Button } from 'react-native';
 import { UserContext } from '../UserContext';
 
-export default function ProfilePage() {
-  const { currentUser } = useContext(UserContext);
+export default function ProfilePage({ navigation }) {
+  const { currentUser, setCurrentUser } = useContext(UserContext);
 
   // Example level logic based on credits
   const getLevel = (credits = 0) => {
@@ -20,10 +20,15 @@ export default function ProfilePage() {
     );
   }
 
+  const handleLogout = () => {
+    setCurrentUser(null);
+    navigation.replace('Login'); // Take user to Login screen
+  };
+
   return (
     <View style={styles.container}>
       <Image
-        source={require('../assets/image-5.png')} 
+        source={require('../assets/image-5.png')}
         style={styles.avatar}
       />
       <Text style={styles.name}>{currentUser.fullName}</Text>
@@ -31,6 +36,9 @@ export default function ProfilePage() {
       <View style={styles.creditsContainer}>
         <Text style={styles.creditsLabel}>Credits:</Text>
         <Text style={styles.creditsValue}>{currentUser.credits || 0}</Text>
+      </View>
+      <View style={{ marginTop: 40, width: '60%' }}>
+        <Button title="Log Out" color="#d32f2f" onPress={handleLogout} />
       </View>
     </View>
   );
