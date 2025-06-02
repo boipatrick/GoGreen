@@ -47,22 +47,9 @@ export default function App() {
             <Stack.Screen
               name="EventsScreen"
               component={EventsScreen}
-              options={{ headerShown: false }}
+              options={{ headerShown: true, title: "Event Details" }}
             />
-            <Stack.Screen
-              name="MyEvents"
-              component={MyEvents}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="Profile"
-              component={ProfilePage}
-              options={{ headerShown: false }}
-            />
-            
-            
-           
-            {/* Future screens like Auth will go here */}
+          
           </Stack.Navigator>
           <StatusBar style="auto" />
         </SafeAreaView>
