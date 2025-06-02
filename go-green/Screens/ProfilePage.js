@@ -5,7 +5,7 @@ import { UserContext } from '../UserContext';
 export default function ProfilePage({ navigation }) {
   const { currentUser, setCurrentUser } = useContext(UserContext);
 
-  // Example level logic based on credits
+  
   const getLevel = (credits = 0) => {
     if (credits >= 100) return 'Level 3: Eco-Champion';
     if (credits >= 50) return 'Level 2: Eco-Warrior';
@@ -22,7 +22,7 @@ export default function ProfilePage({ navigation }) {
 
   const handleLogout = () => {
     setCurrentUser(null);
-    navigation.replace('Login'); // Take user to Login screen
+    navigation.replace('Login'); 
   };
 
   return (

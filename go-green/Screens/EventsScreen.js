@@ -1,9 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Text, Image, StyleSheet, ScrollView, Button } from 'react-native';
+import { UserContext } from '../UserContext';
+
 
 
 export default function EventDetails({ route }) {
   const { event } = route.params;
+  const { currentUser, setCurrentUser, users, setUsers } = useContext(UserContext);
+
+  const handleJoinEvent = () => {
+  
+    if (currentUser.myEvents && currentUser.myEvents.some(e => e.title === event.title)) {
+      alert('You have already joined this event.');
+      return;
+    }
+
+    const updatedUser = {
+      ...currentUser,
+      myEvents: [...(currentUser.myEvents || []), event],
+      credits: Number(currentUser.credits || 0) + Number(event.credits || 0),
+    };
+
+    setCurrentUser(updatedUser);
+
+  
+    const updatedUsers = users.map(u =>
+      u.email === updatedUser.email ? updatedUser : u
+    );
+    setUsers(updatedUsers);
+
+    alert(`Joined ${event.title}!`);
+  };
 
   return (
     <ScrollView style={styles.container}>
@@ -39,7 +66,7 @@ export default function EventDetails({ route }) {
         {event.description}
       </Text>
       <View style={styles.buttonWrapper}>
-        <Button title="Join Event" onPress={() => alert(`Joined ${event.title}!`)} color="#2E7D32" />
+        <Button title="Join Event" onPress={handleJoinEvent} color="#2E7D32" />
       </View>
     </ScrollView>
   );

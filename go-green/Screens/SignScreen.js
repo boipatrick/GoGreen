@@ -18,7 +18,7 @@ export default function SignScreen({ navigation }) {
       Alert.alert('Error', 'User already exists');
       return;
     }
-    setUsers([...users, { fullName, email, password }]);
+    setUsers([...users, { fullName, email, password, credits: 0, myEvents: [] }]);
     Alert.alert('Success', 'Account created! Please log in.');
     navigation.navigate('Login');
   };
