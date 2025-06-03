@@ -3,6 +3,8 @@ import { Text } from "react-native";
 import EventList from "../Screens/EventList";
 import MyEvents from '../Screens/MyEvents'
 import ProfilePage from "../Screens/ProfilePage";
+import AIChat from "../Screens/AIChat";
+
 
 
 const BottomTab = createBottomTabNavigator();
@@ -20,6 +22,9 @@ export default function MainNav() {
               iconName = focused ? "📅" : "🗓️";
             } else if (route.name === "Profile") {
               iconName = focused ? "👤" : "🙎‍♂️";
+             } else if (route.name == "AIChat"){
+              iconName = '💬'
+
             }
 
             return (
@@ -57,6 +62,11 @@ export default function MainNav() {
         name="Profile"
         component={ProfilePage}
         options={{ title: "Profile"}}
+      />
+      <BottomTab.Screen
+        name="AIChat"
+        component={AIChat}
+        options={{ title: "Chat"}}
       />
        
       
