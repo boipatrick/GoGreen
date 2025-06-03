@@ -60,7 +60,19 @@ export default function MyEvents() {
                 <TouchableOpacity style={styles.ctaButtonOutline}>
                   <Text style={styles.ctaButtonOutlineText}>View Details</Text>
                 </TouchableOpacity>
-             
+                <TouchableOpacity
+                  style={styles.ctaButtonDelete}
+                  onPress={() => {
+                   
+                    const updatedEvents = myEvents.filter(e => e.title !== item.title);
+                    
+                    currentUser.myEvents = updatedEvents;
+                   
+                    if (typeof setCurrentUser === 'function') setCurrentUser({ ...currentUser, myEvents: updatedEvents });
+                  }}
+                >
+                  <Text style={styles.ctaButtonDeleteText}>Delete</Text>
+                </TouchableOpacity>
               </View>
             </View>
           )}
@@ -223,6 +235,18 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   ctaButtonFilledText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 15,
+  },
+  ctaButtonDelete: {
+    backgroundColor: '#e57373',
+    borderRadius: 8,
+    paddingVertical: 6,
+    paddingHorizontal: 18,
+    marginLeft: 10,
+  },
+  ctaButtonDeleteText: {
     color: '#fff',
     fontWeight: 'bold',
     fontSize: 15,
