@@ -2,8 +2,10 @@ import React, { useContext } from 'react';
 import { View, Text, FlatList, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import { UserContext } from '../UserContext';
+import { useNavigation } from '@react-navigation/native';
 
 export default function MyEvents() {
+  const navigation = useNavigation();
   const { currentUser } = useContext(UserContext);
   const myEvents = currentUser?.myEvents || [];
   const layout = Dimensions.get('window');
@@ -57,7 +59,10 @@ export default function MyEvents() {
               
              
               <View style={styles.ctaRow}>
-                <TouchableOpacity style={styles.ctaButtonOutline}>
+                <TouchableOpacity
+                  style={styles.ctaButtonOutline}
+                  onPress={() => navigation.navigate('EventsScreen', { event: item })}
+                >
                   <Text style={styles.ctaButtonOutlineText}>View Details</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -116,12 +121,13 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#181a1b',
+    backgroundColor: '#fff',
   },
   cardContainer: {
     backgroundColor: '#232526',
     borderRadius: 18,
     marginBottom: 20,
+    marginTop: 20,
     width: 340,
     alignSelf: 'center',
     padding: 18,
