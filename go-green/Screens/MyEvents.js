@@ -121,10 +121,10 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#E8F5E9', 
   },
   cardContainer: {
-    backgroundColor: '#232526',
+    backgroundColor: '#fff',
     borderRadius: 18,
     marginBottom: 20,
     marginTop: 20,
@@ -187,14 +187,15 @@ const styles = StyleSheet.create({
     fontSize: 13,
   },
   eventTitle: {
-    color: '#fff',
+    color: '#222',
     fontWeight: 'bold',
     fontSize: 20,
     marginTop: 4,
     marginBottom: 2,
   },
   eventSubtitle: {
-    color: '#b0b0b0',
+    color: '#333', 
+    fontWeight: 'bold',
     fontSize: 14,
     marginBottom: 4,
   },
@@ -211,7 +212,8 @@ const styles = StyleSheet.create({
     marginTop: 6,
   },
   metaItem: {
-    color: '#e0e0e0',
+    color: '#222', 
+    fontWeight: 'bold', 
     fontSize: 13,
   },
   

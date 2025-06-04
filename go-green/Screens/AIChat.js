@@ -2,7 +2,7 @@ import { useState } from "react";
 import { KeyboardAvoidingView, StyleSheet, Text, View, Platform, TextInput, TouchableOpacity, FlatList } from "react-native";
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: "RANDOM" });
+const ai = new GoogleGenAI({ apiKey: "AIzaSyAFGs9KLdUlHy9NyIeTR04I4Pa2Epm260o" });
 
 const chatMessages = [
     { sender: 'you', message: 'Hello Gemini' },
@@ -18,7 +18,12 @@ function ChatMessage({ item }){
             isYou ? styles.rightMessage : styles.leftMessage
         ]} >
             <Text style={styles.senderText}>{item.sender}</Text>
-            <Text style={styles.message}>{item.message}</Text>
+            <Text style={[
+                styles.message,
+                isYou && styles.rightMessageText
+            ]}>
+                {item.message}
+            </Text>
         </View>
     );
 }
@@ -32,7 +37,7 @@ export default function AIChat(){
     const makeAiInference = async () => {
         const response = await ai.models.generateContent({
             model: "gemini-2.0-flash-lite",
-            contents: inputText.trim() + " Answer all these in the context of Kiambu County, Kenya"
+            contents: inputText.trim() + " Answer all these in the context of Biodiversity promoting activities within Kiambu County"
         });
         setLoading(false);
 
@@ -98,61 +103,76 @@ export default function AIChat(){
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#f0f0f0',
+        backgroundColor: '#E8F5E9', 
     },
     messageContainer: {
-        maxWidth: '70%',
-        borderRadius: 10,
-        padding: 10,
-        marginVertical: 5
+        maxWidth: '75%',
+        borderRadius: 12,
+        padding: 12,
+        marginVertical: 6,
     },
     leftMessage: {
         alignSelf: 'flex-start',
-        backgroundColor: '#e0e0e0',
+        backgroundColor: '#e6e6e6', 
     },
     rightMessage: {
         alignSelf: 'flex-end',
-        backgroundColor: '#007AFF'
+        backgroundColor: '#2196F3', 
     },
     senderText: {
-        fontSize: 12,
+        fontSize: 13,
         fontWeight: 'bold',
-        color: "#444",
+        color: "#666",
         marginBottom: 2,
     },
     message: {
         fontSize: 16,
-        color: '#000000',
+        color: '#222', 
+    },
+    
+    rightMessageText: {
+        color: '#fff',
     },
     inputContainer: {
         flexDirection: 'row',
-        padding: 8,
+        alignItems: 'center',
+        paddingHorizontal: 10,
+        paddingVertical: 6,
         borderTopWidth: 1,
-        borderColor: '#ccc',
+        borderColor: '#ddd',
         backgroundColor: '#fff',
     },
     input: {
         flex: 1,
-        paddingHorizontal: 12,
-        paddingVertical: 8,
-        backgroundColor: '#f2f2f2',
-        borderRadius: 20,
+        backgroundColor: '#f7f7f7',
+        borderRadius: 24,
         fontSize: 16,
+        height: 48,
+        paddingHorizontal: 16,
+        marginRight: 8,
+        borderWidth: 1,
+        borderColor: '#e0e0e0',
     },
     sendButton: {
-        marginLeft: 8,
-        backgroundColor: '#007AFF',
-        paddingHorizontal: 16,
-        borderRadius: 20,
+        backgroundColor: '#2196F3',
+        borderRadius: 24,
+        height: 48,
+        minWidth: 48,
         justifyContent: 'center',
+        alignItems: 'center',
+        paddingHorizontal: 18,
+        elevation: 2,
     },
     sendText: {
         color: '#fff',
         fontWeight: 'bold',
+        fontSize: 16,
     },
     chat: {
-        padding: 10,
+        paddingTop: 18,
+        paddingBottom: 0,
+        paddingHorizontal: 6,
         flexGrow: 1,
         justifyContent: 'flex-end',
     },
-})
+});

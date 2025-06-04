@@ -4,6 +4,7 @@ import EventList from "../Screens/EventList";
 import MyEvents from '../Screens/MyEvents'
 import ProfilePage from "../Screens/ProfilePage";
 import AIChat from "../Screens/AIChat";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 
 
@@ -17,18 +18,17 @@ export default function MainNav() {
         return {
           tabBarIcon: ({ focused, color, size }) => {
             if (route.name === "EventList") {
-              iconName = focused ? "🏠" : "🏡";
+              iconName = focused ? "home" : "home-outline";
             } else if (route.name === "MyEvents") {
-              iconName = focused ? "📅" : "🗓️";
+              iconName = focused ? "calendar" : "calendar-outline";
             } else if (route.name === "Profile") {
-              iconName = focused ? "👤" : "🙎‍♂️";
+              iconName = focused ? "account" : "account-outline";
              } else if (route.name == "AIChat"){
-              iconName = '💬'
-
+              iconName = 'chat'
             }
 
             return (
-              <Text style={{ color: color, fontSize: size }}>{iconName}</Text>
+              <MaterialCommunityIcons name={iconName} size={32} color={color} />
             );
           },
           tabBarActiveTintColor: "#2E7D32",
@@ -44,7 +44,7 @@ export default function MainNav() {
             fontSize: 12,
             fontWeight: "bold",
           },
-          headerShown: true,
+          headerShown: false,
         };
       }}
     >

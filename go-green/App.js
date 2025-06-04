@@ -22,7 +22,6 @@ export default function App() {
   return (
     <NavigationContainer>
       <UserProvider>
-        <SafeAreaView style={{ flex: 1 }}>
           <Stack.Navigator initialRouteName="Welcome">
             <Stack.Screen
               name="Welcome"
@@ -52,7 +51,6 @@ export default function App() {
           
           </Stack.Navigator>
           <StatusBar style="auto" />
-        </SafeAreaView>
       </UserProvider>
     </NavigationContainer>
   );
