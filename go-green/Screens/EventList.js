@@ -4,6 +4,7 @@ import Carousel from 'react-native-reanimated-carousel';
 import { events } from '../data/events';
 import { UserContext } from '../UserContext';
 import { MaterialIcons, MaterialCommunityIcons, FontAwesome5 } from '@expo/vector-icons';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const { width: screenWidth } = Dimensions.get('window');
 const CARD_HORIZONTAL_PADDING = 20; // Match container padding
@@ -56,7 +57,7 @@ export default function EventList({ navigation }) {
   );
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.welcomeBoundary}>
         <View style={styles.headerRow}>
           <View style={{ flex: 1 }}>
@@ -96,7 +97,7 @@ export default function EventList({ navigation }) {
         windowSize={3}
         itemWidth={screenWidth - CARD_HORIZONTAL_PADDING * 2} // This makes the cards narrower
       />
-    </View>
+    </SafeAreaView>
   );
 }
 

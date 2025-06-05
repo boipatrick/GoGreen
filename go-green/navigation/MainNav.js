@@ -45,6 +45,12 @@ export default function MainNav() {
             fontWeight: "bold",
           },
           headerShown: false,
+          headerStyle: {
+            height: 35, 
+            backgroundColor: "#fff", 
+            elevation: 0, 
+            shadowOpacity: 0,
+          },
         };
       }}
     >
