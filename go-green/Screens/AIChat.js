@@ -2,8 +2,7 @@ import { useState } from "react";
 import { KeyboardAvoidingView, StyleSheet, Text, View, Platform, TextInput, TouchableOpacity, FlatList } from "react-native";
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: "AIzaSyAFGs9KLdUlHy9NyIeTR04I4Pa2Epm260o" });
-
+const ai = new GoogleGenAI({ apiKey: ""})
 const chatMessages = [
     { sender: 'you', message: 'Hello Gemini' },
     { sender: 'AI', message: 'My name is not Gemini, I am just AI' }
